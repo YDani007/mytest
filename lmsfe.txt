@@ -1,0 +1,10 @@
+lms fe
+
+cd /var/lib/jenkins/workspace/lmsfe/lms-fe/lmsv1
+npm install
+npm run build
+sudo apt update
+sudo apt install nginx -y
+sudo rm -rf /var/www/html/*
+sudo cp -rf /var/lib/jenkins/workspace/lmsfe/lms-fe/lmsv1/build/* /var/www/html/
+sudo systemctl restart nginx
